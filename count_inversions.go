@@ -13,7 +13,7 @@ func merge_count(array *[]int32, start int, mid int, mid_plus_one int, end int) 
 	p, q := start, mid_plus_one;
 	for p <= mid && q <= end {
 		if ((*array)[p] > (*array)[q]) {
-			count += (int64)(q - mid_plus_one + 1);
+			count += (int64)(mid_plus_one - p);
 			temp_array[loc] = (*array)[q];
 			loc += 1;
 			q += 1;
@@ -24,7 +24,6 @@ func merge_count(array *[]int32, start int, mid int, mid_plus_one int, end int) 
 		}
 	}
 	for p <= mid {
-		// count += q - mid_plus_one + 1;
 		temp_array[loc] = (*array)[p];
 		p += 1;
 		loc += 1;
@@ -48,7 +47,6 @@ func inversions(array *[]int32, start int, end int) (int64){
 	if (start >= end) {
 		return 0;
 	}
-	fmt.Printf("start is %v and end is %v\n", start, end);
 	mid_point := (start + end) / 2;
 	left_count := inversions(array, start, mid_point);
 	//TODO(crisna): Simplify these functions using Go Slices
