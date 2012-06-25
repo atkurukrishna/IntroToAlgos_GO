@@ -19,14 +19,14 @@ func merge_count(array *[]int32, start int, mid int, mid_plus_one int, end int) 
 			q += 1;
 		} else {
 			temp_array[loc] = (*array)[p];
-			loc += 1;
-			p += 1;
+			loc++;
+			p++;
 		}
 	}
 	for p <= mid {
 		temp_array[loc] = (*array)[p];
-		p += 1;
-		loc += 1;
+		p++;
+		loc++;
 	}
 	for q <= end {
 		temp_array[loc] = (*array)[q];
